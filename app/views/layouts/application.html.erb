@@ -29,14 +29,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Address Tracker</a>
+                <a class="navbar-brand" href="/">Address Tracker</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
+                  <% if user_signed_in? %>
+                    <li><a href="/profiles/<%= current_user.profile.id %>/edit">Edit Profile</a></li>
+                    <li><a href="/users/edit">User Login Details</a></li>
+                    <li><a href="/profiles">All Profiles</a></li>
+                  <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -49,7 +51,7 @@
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 text-center">
                     <p>Copyright &copy; Santosh Varma 2017</p>
                 </div>
                 <!-- /.col-lg-12 -->
